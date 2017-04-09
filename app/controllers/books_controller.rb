@@ -15,6 +15,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.isbn_13 = params[:isbn_13]
   end
 
   # GET /books/1/edit
@@ -61,6 +62,15 @@ class BooksController < ApplicationController
     end
   end
 
+  def get_barcode
+   @book = Book.find_or_initialize_by(isbn_13: params[:isbn_13])
+   unless @book.new_record?
+     redirect_to @book
+   else
+     redirect_to new_book_path(isbn_13: params[:isbn_13])
+   end
+ end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -69,6 +79,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :subtitle)
+      params.require(:book).permit(:title, :subtitle, :isbn_13)
     end
 end
