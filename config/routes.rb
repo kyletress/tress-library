@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :authors
   resources :books do
     post :get_barcode, on: :collection
-    get :import, on: :collection 
+    get :import, on: :collection
+    get :scan, on: :collection
   end
   resources :book_search, only: [:index, :create]
 

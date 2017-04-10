@@ -77,6 +77,9 @@ class BooksController < ApplicationController
    @book = Book.build_from_api(book)
  end
 
+ def scan
+ end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
