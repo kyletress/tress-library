@@ -2,10 +2,9 @@
 
 <div id="barcode-scanner"></div>
 
-<h1>Tress Library</h1>
 <p style="color:grey;">Happy <%= Date.today.strftime('%A') %></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -29,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new_book_path, class: 'btn btn-primary' %>
