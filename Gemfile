@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'googlebooks'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'carrierwave', '~> 1.0'
 
 
 # Use Redis adapter to run Action Cable in production
