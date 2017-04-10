@@ -10,5 +10,15 @@
   <%= @book.subtitle %>
 </p>
 
+<p>
+  <strong>ISBN:</strong>
+  <%= @book.isbn_13 %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

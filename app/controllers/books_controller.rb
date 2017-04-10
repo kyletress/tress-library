@@ -68,10 +68,13 @@ class BooksController < ApplicationController
    unless @book.new_record?
      redirect_to @book
    else
-     @book = GoogleBooks.search(params[:isbn_13]).first
-     # redirect_to new_book_search_path(@response)
-     redirect_to new_book_path(title: @book.title, isbn_13: params[:isbn_13])
+     redirect_to import_books_path(q: params[:isbn_13])
    end
+ end
+
+ def import
+   book = GoogleBooks.search(params[:q]).first
+   @book = Book.build_from_api(book)
  end
 
   private
@@ -82,6 +85,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :subtitle, :isbn_13)
+      params.require(:book).permit(:title, :subtitle, :isbn_13, :description, :page_count)
     end
 end

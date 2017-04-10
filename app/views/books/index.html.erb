@@ -2,7 +2,8 @@
 
 <div id="barcode-scanner"></div>
 
-<h1>Books</h1>
+<h1>Tress Library</h1>
+<p style="color:grey;">Happy <%= Date.today.strftime('%A') %></p>
 
 <table>
   <thead>
@@ -16,7 +17,7 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= book.title %></td>
+        <td style="font-weight:bold;"><%= book.title %></td>
         <td><%= book.subtitle %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>

@@ -1,0 +1,10 @@
+<h2>Import</h2>
+
+<%= form_for(@book) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :subtitle %>
+  <%= f.text_area :description %>
+  <%= f.text_area :page_count %>
+  <%= f.text_area :isbn_13 %>
+  <%= f.submit 'Add Book' %>
+<% end %>
