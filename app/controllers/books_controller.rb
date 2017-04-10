@@ -16,6 +16,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.isbn_13 = params[:isbn_13]
+    @book.title = params[:title]
   end
 
   # GET /books/1/edit
@@ -67,7 +68,9 @@ class BooksController < ApplicationController
    unless @book.new_record?
      redirect_to @book
    else
-     redirect_to new_book_path(isbn_13: params[:isbn_13])
+     @book = GoogleBooks.search(params[:isbn_13]).first
+     # redirect_to new_book_search_path(@response)
+     redirect_to new_book_path(title: @book.title, isbn_13: params[:isbn_13])
    end
  end
 
